@@ -1,6 +1,13 @@
-import appInstance from './appInstance'
+import app from './appInstance'
+import constants from './constants'
 import router from './router'
+import request from './request'
+import backend from './backend'
 
-appInstance.use(router)
+const services = {
+  backendService: new backend(request, constants),
+}
 
-export { appInstance, router }
+const appInstance = app(services).use(router)
+
+export { appInstance }
