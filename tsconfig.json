@@ -1,0 +1,20 @@
+{
+  "include": [
+    "./src/**/*"
+  ],
+  "compilerOptions": {
+    // Vue browser support
+    "target": "es6",
+    // strict `this`
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    // webpack 2+ tree-shaking support
+    "module": "es2015",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "allowJs": true,
+    "paths": {
+        "@/*": ["./src/*"],
+    }
+  }
+}
