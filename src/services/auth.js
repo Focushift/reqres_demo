@@ -10,7 +10,7 @@ export default function(backend, router) {
 
   router.beforeEach((to, from, next) => {
     if (!state.token && to.name !== 'Login') {
-      // next(false)
+      next(false)
       return logout()
     }
     if (state.user && to.name === 'Login') {

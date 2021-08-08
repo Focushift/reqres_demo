@@ -1,9 +1,9 @@
 <template>
   <div class="login-page">
     Login
-    <form ref="loginForm" @submit.prevent="">
-      <input type="email" v-model.trim="email" id="email" name="email" required autocomplete="login-password">
-      <input type="password" v-model.trim="password" id="password" name="password" required autocomplete="login-password">
+    <form @submit.prevent="">
+      <input v-model.trim="email" type="email" id="email" name="email" required autocomplete="login-password">
+      <input v-model.trim="password" type="password" id="password" name="password" required autocomplete="login-password">
       <button @click="login" type="submit">
           Login
       </button>
