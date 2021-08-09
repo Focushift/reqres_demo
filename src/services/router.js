@@ -1,6 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-const navigation = []
+const navigation = [
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/',
+  },
+]
 
 const requireRoutes = require.context('../modules/', true, /\w+\/index\.js$/)
 extractRoutes(requireRoutes)
