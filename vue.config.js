@@ -1,7 +1,9 @@
+const ghpages = process.env.npm_lifecycle_event && process.env.npm_lifecycle_event.includes(':ghpages')
+
 module.exports = {
   lintOnSave: false,
   runtimeCompiler: false,
-  publicPath: process.env.NODE_ENV === 'production'
+  publicPath: ghpages
     ? '/reqres_demo/'
     : '/'
 }

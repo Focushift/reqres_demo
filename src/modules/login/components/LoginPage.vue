@@ -42,7 +42,7 @@ export default {
       if (!email || !password) return
       this.authService.login({ email, password })
         .catch(error => alert(error))
-    }
+    },
   }
 }
 </script>
