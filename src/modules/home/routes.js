@@ -1,23 +1,23 @@
-import HomePage from './components/HomePage.vue'
-import HomeMainPage from './components/HomeMainPage.vue'
-import HomeUsersPage from './components/HomeUsersPage.vue'
+import MainPage from './components/MainPage.vue'
+import MainHomePage from './components/MainHomePage.vue'
+import MainUsersPage from './components/MainUsersPage.vue'
 
 export default [
   {
     path: '/',
-    name: 'Home',
-    component: HomePage,
-    redirect: { name: 'Main' },
+    name: 'Main',
+    component: MainPage,
+    redirect: { name: 'Home' },
     children: [
       {
-        name: 'Main',
-        path: '/main',
-        component: HomeMainPage,
+        name: 'Home',
+        path: '/home',
+        component: MainHomePage,
       },
       {
         name: 'Users',
         path: '/users',
-        component: HomeUsersPage,
+        component: MainUsersPage,
       }
     ]
   },

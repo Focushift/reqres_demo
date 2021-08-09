@@ -8,12 +8,12 @@
 import NavMenu from '@/components/NavMenu.vue'
 
 export default {
-  name: 'HomePage',
+  name: 'MainPage',
   components: { NavMenu },
   computed: {
     tabsList() {
       return [
-        'Main','Users',
+        'Home','Users',
       ]
     }
   },

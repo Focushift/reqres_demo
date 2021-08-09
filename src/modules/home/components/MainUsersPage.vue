@@ -30,7 +30,7 @@
 import ModalDialog from '@/components/ModalDialog.vue'
 
 export default {
-  name: 'HomeUsersPage',
+  name: 'MainUsersPage',
   inject: ['backendService'],
   components: { ModalDialog },
   data: () => ({

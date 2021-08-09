@@ -1,5 +1,5 @@
 <template>
-  <div class="main-page">
+  <div class="home-page">
     <div class="greeting">
       <h2>Hey, You logged in!</h2>
       <a @click="logout" href="">Logout</a>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'HomeMainPage',
+  name: 'MainHomePage',
   inject: ['authService'],
   methods: {
     logout() {
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .main-page {
+  .home-page {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
