@@ -7,7 +7,7 @@ export default [
     path: '/',
     name: 'Main',
     component: MainPage,
-    redirect: { name: 'Home' },
+    redirect: { name: 'Users' },
     children: [
       {
         name: 'Home',

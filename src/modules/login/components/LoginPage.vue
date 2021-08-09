@@ -1,23 +1,37 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../../../assets/logo.png">
-  </div>
   <div class="login-page">
-    Login
-    <form @submit.prevent="">
-      <input v-model.trim="email" type="email" id="email" name="email" required autocomplete="login-password">
-      <input v-model.trim="password" type="password" id="password" name="password" required autocomplete="login-password">
-      <button @click="login" type="submit">
-          Login
-      </button>
-    </form>
+    <div class="login-form">
+      <form @submit.prevent="">
+        <div class="form-inner">
+          <div class="logo">
+            <img alt="Vue logo" src="../../../assets/logo.png">
+          </div>
+          <FormInput v-model.trim="email" title="Username" type="email" formName="email" />
+          <FormInput v-model.trim="password" title="Password" type="password" formName="password" />
+
+          <FormButton @click="login" type="submit" block>
+              Login
+          </FormButton>
+        </div>
+
+        <div class="button-group">
+          <FormButton type="reset">
+            Cancel
+          </FormButton>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
+import FormInput from '@/components/FormInput.vue'
+import FormButton from '@/components/FormButton.vue'
+
 export default {
   name: 'LginPage',
   inject: ['authService'],
+  components: { FormInput, FormButton },
   data: () => ({
     email: '',
     password: '',
@@ -35,9 +49,28 @@ export default {
 
 <style lang="scss" scoped>
   .login-page {
-    min-width: 300px;
-    min-height: 300px;
-    margin: auto;
-    background-color: aqua;
+    display: flex;
+    justify-content: center;
+
+    .login-form {
+      min-width: 500px;
+      margin-top: 200px;
+      background-color: lightgray;
+      padding: 2px;
+      .logo {
+        display: flex;
+        justify-content: center;
+      }
+      .form-inner {
+        background-color: white;
+        padding: 20px;
+        > * {
+          max-width: 440px;
+        }
+      }
+      .button-group {
+        padding: 20px;
+      }
+    }
   }
 </style>
