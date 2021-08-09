@@ -11,8 +11,13 @@ export default function(request, constants) {
     return request(`${apiUrl}/login`, options)
   }
 
+  function getUsers() {
+    return request(`${apiUrl}/users`)
+  }
+
   return {
     setToken: newToken => token = newToken,
     login,
+    getUsers,
   }
 }
