@@ -19,7 +19,7 @@
       </tr>
     </tbody>
   </table>
-  <ModalDialog v-if="selectedUser" @close="selectedUser = null">
+  <ModalDialog v-if="selectedUser" @close="selectedUser = null" title="Image">
     <div class="avatar-preview">
       <img :src="selectedUser.avatar" alt="" />
     </div>

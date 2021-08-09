@@ -3,7 +3,7 @@
     <div class="modal">
       <div class="modal-dialog">
         <div class="header">
-          Modal
+          {{ title }}
           <button @click="$emit('close')" type="button" class="close" aria-label="close">X</button>
         </div>
         <div class="content">
@@ -18,6 +18,12 @@
 export default {
   name: 'ModalDialog',
   emits: ['close'],
+  props: {
+    title: {
+      type: String,
+      default: '',
+    }
+  },
 }
 </script>
 
@@ -53,7 +59,7 @@ export default {
         }
       }
       .content {
-        border: 1px solid rgb(95, 95, 95);
+        border-top: 1px solid rgb(95, 95, 95);
         outline: 0;
         padding: 5px;
       }

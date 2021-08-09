@@ -1,16 +1,21 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../../../assets/logo.png">
-  </div>
-  <router-link to="/">Main</router-link>
-  <router-link to="/users">Users</router-link>
-
-  <router-view />
+  <NavMenu :tabs="tabsList">
+    <router-view />
+  </NavMenu>
 </template>
 
 <script>
+import NavMenu from '@/components/NavMenu.vue'
 
 export default {
   name: 'HomePage',
+  components: { NavMenu },
+  computed: {
+    tabsList() {
+      return [
+        'Main','Users',
+      ]
+    }
+  },
 }
 </script>
