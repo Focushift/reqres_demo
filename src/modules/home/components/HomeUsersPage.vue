@@ -14,19 +14,28 @@
         <td v-text="user.last_name"></td>
         <td v-text="user.email"></td>
         <td>
-          <img :src="user.avatar" alt="" />
+          <img @click="selectedUser = user" :src="user.avatar" alt="" />
         </td>
       </tr>
     </tbody>
   </table>
+  <ModalDialog v-if="selectedUser" @close="selectedUser = null">
+    <div class="avatar-preview">
+      <img :src="selectedUser.avatar" alt="" />
+    </div>
+  </ModalDialog>
 </template>
 
 <script>
+import ModalDialog from '@/components/ModalDialog.vue'
+
 export default {
   name: 'HomeUsersPage',
   inject: ['backendService'],
+  components: { ModalDialog },
   data: () => ({
     users: [],
+    selectedUser: null,
   }),
   mounted() {
     this.backendService.getUsers()
@@ -78,6 +87,11 @@ export default {
 
     img {
       max-width: 40px;
+      cursor: pointer;
     }
+  }
+  .avatar-preview {
+    display: flex;
+    justify-content: center;
   }
 </style>
