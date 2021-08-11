@@ -1,20 +1,21 @@
+const headers = new Headers({
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+})
 const defaultOptions = {
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
+  headers,
   method: 'GET'
 }
 
-async function request(url, requestOptions) {
+export default async function(url, requestOptions) {
   const options = {
     ...defaultOptions,
     ...requestOptions,
   }
-  if (typeof options.body === 'object') options.body = JSON.stringify(options.body)
+  if (options.method !== 'GET' && typeof options.body === 'object') options.body = JSON.stringify(options.body)
+  const request = new Request(url, options)
 
-  return fetch(url, options)
+  return fetch(request)
       .then(response => response.ok ? response.json() : response.text().then(t => Promise.reject(t)))
 }
 
-export default request
